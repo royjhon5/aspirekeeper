@@ -49,6 +49,34 @@ const Header: React.FC = () => {
             </ul>
         </nav>
     </header>
+    <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 bg-white shadow-t">
+      <ul className="flex w-full justify-between items-center text-black-500 py-3 cursor-pointer">
+        {[
+          { name: "Home", to: "home" },
+          { name: "Services", to: "services" },
+          { name: "About", to: "aboutus" },
+          { name: "Pricing", to: "pricing" },
+          { name: "Blog", to: "blog" },
+          { name: "Contact", to: "contact" },
+        ].map((item) => (
+          <LinkScroll
+            key={item.to}
+            activeClass="active"
+            to={item.to}
+            spy={true}
+            smooth={true}
+            duration={1000}
+            onSetActive={() => setActiveLink(item.to)}
+            className={`flex flex-col items-center justify-center text-sm md:text-base px-3 py-2 w-full ${
+              activeLink === item.to ? "text-green-900 font-semibold" : "text-black-500 hover:text-green-900"
+            }`}
+          >
+            {item.name}
+          </LinkScroll>
+        ))}
+      </ul>
+    </nav>
+
     </>
   );
 };
