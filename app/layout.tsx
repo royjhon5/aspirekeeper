@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Aspire Keeper handles your tasks and to-do lists, so you can focus on achieving your goals. We offer virtual assistance to streamline work and boost efficiency",
     images: [
       {
-        url: "https://dminhvu.com/images/home/thumbnail.png",
+        url: "https://aspirekeeper-demo.vercel.app/thumbnail/thumbnail.png",
         width: 1200,
         height: 630,
         alt: "Aspire Keeper Solutions Thumbnail"
