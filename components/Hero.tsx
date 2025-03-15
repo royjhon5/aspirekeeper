@@ -7,6 +7,7 @@ import ScrollAnimationWrapper from './layouts/ScrollAnimationWrapper';
 import Image from 'next/image';
 import heroImage from '../public/hero_section_images/hero2.svg'
 import ButtonPrimary from './misc/ButtonPrimary';
+import heroImages from '../public/hero_section_images/hero-bg-light.jpg';
 
 const HeroSection: React.FC = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
@@ -26,7 +27,19 @@ const HeroSection: React.FC = () => {
   ]
 
   return (
-    <div className='max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto' id="home">
+    <div className="relative w-full h-screen">
+      <Image
+        src={heroImages}
+        alt="Hero Background"
+        layout="fill"
+        objectFit="cover"
+        width={0}
+        height={0}
+        quality={100}
+        priority 
+        style={{ filter: "opacity(15%)" }} 
+      />
+      <div className='max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto' id="home">
       <ScrollAnimationWrapper>
         <motion.div
           className="grid grid-flow-row sm:grid-flow-col grid-rows-2 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16"
@@ -78,6 +91,7 @@ const HeroSection: React.FC = () => {
           style={{ filter: "blur(114px)" }}
        ></div>
       </div>
+    </div>
     </div>
   );
 };

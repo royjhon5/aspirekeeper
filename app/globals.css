@@ -160,6 +160,16 @@ li.check:before {
   font-size: 400%;
 }
 
+.slick-dots li {
+  @apply inline-block;
+}
+.slick-dots span {
+  @apply bg-gray-500 flex justify-center mt-4;
+}
+.slick-dots .slick-active span {
+  @apply bg-green-900 rounded-r-full w-12 flex justify-center mt-4;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

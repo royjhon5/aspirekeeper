@@ -1,7 +1,8 @@
+import ContactUs from "@/components/ContactUs";
 import HeroSection from "@/components/Hero";
 import Layout from "@/components/layouts/Layout";
-import PricingComponent from "@/components/Pricing";
 import ServiceComponent from "@/components/Services";
+import TestimonialSection from "@/components/TestimonialSection";
 
 
 export default function Home() {
@@ -10,7 +11,8 @@ export default function Home() {
     <Layout>
       <HeroSection />
       <ServiceComponent />
-      <PricingComponent />
+      <TestimonialSection />
+      <ContactUs />
     </Layout>
     </>
   );

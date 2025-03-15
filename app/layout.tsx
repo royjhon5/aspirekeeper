@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto_Mono } from "next/font/google";
+import "./slick.css"
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
