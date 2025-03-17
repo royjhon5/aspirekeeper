@@ -1,71 +1,100 @@
-export default function ServiceList() {
+'use client';
+
+import React, { useMemo } from 'react';
+import ScrollAnimationWrapper from './layouts/ScrollAnimationWrapper';
+import { motion } from 'framer-motion';
+import getScrollAnimation from '@/utils/getScrollAnimation';
+
+const ServiceList: React.FC = () => {
+  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+
+  const services = [
+    {
+      title: "General Admin Support",
+      description: "Email and calendar management, document organization, data entry & research.",
+      icon: "💼",
+      borderColor: "border-[#0d4a3a]",
+      textColor: "text-[#0d4a3a]",
+    },
+    {
+      title: "Social Media Assistance",
+      description: "Content scheduling & posting, engagement & community management, caption writing & branding support.",
+      icon: "📷",
+      borderColor: "border-[#fcc811]",
+      textColor: "text-[#fcc811]",
+    },
+    {
+      title: "Project & Task Management",
+      description: "Organizing tasks & deadlines, process automation, meeting notes & action item tracking.",
+      icon: "📃",
+      borderColor: "border-[#0d4a3a]",
+      textColor: "text-[#0d4a3a]",
+    },
+    {
+      title: "Customer Support Assistance",
+      description: "Responding to inquiries, managing support tickets, live chat & email support.",
+      icon: "📞",
+      borderColor: "border-[#fcc811]",
+      textColor: "text-[#fcc811]",
+    },
+    {
+      title: "Research & Reporting",
+      description: "Market research & competitor analysis, report creation, presentation preparation.",
+      icon: "📝",
+      borderColor: "border-[#0d4a3a]",
+      textColor: "text-[#0d4a3a]",
+    },
+    {
+      title: "Additional Custom Support",
+      description: "Need something specific? Let’s discuss your needs!",
+      icon: "🛠️",
+      borderColor: "border-[#fcc811]",
+      textColor: "text-[#fcc811]",
+    },
+  ];
+
   return (
-    <div className="max-w-6xl mx-auto p-10">
-      <h1 className="text-4xl font-bold text-center mb-6">Services</h1>
-      <p className="text-center text-gray-600 mb-10">
-        Supporting Your Success, One Task at a Time.
-      </p>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className={`bg-white shadow-lg rounded-2xl p-6 flex gap-4 items-start border-t-4 
-            border-[${service.borderColor}] transition-all duration-300 cursor-pointer hover:bg-[${service.borderColor}] hover:scale-105 hover:shadow-2xl`}
+    <div className="bg-gradient-to-b from-white-300 to-white-500 w-full py-14" id="services">
+      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
+        <ScrollAnimationWrapper>
+          <motion.h3
+            variants={scrollAnimation}
+            className="text-2xl sm:text-2xl lg:text-3xl font-medium text-black-600 w-9/12 sm:w-4/12 mx-auto"
           >
-            <span className={`text-[${service.borderColor}] text-3xl`}>{service.icon}</span>
-            <div>
-              <h3 className="text-xl font-bold">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+            Our Services
+          </motion.h3>
+          <motion.p
+            variants={scrollAnimation}
+            className="leading-normal mx-auto mb-8 mt-4 w-10/12 sm:w-7/12 lg:w-6/12"
+          >
+            Supporting Your Success, One Task at a Time.
+          </motion.p>
+        </ScrollAnimationWrapper>
 
-      <div className="mt-10 text-center">
-        <p className="text-lg font-semibold">
-          "Let's tailor our services to meet your needs. Book a discovery call today!"
-        </p>
+        <ScrollAnimationWrapper className="grid md:grid-cols-2 gap-8 py-12">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={scrollAnimation}
+              className={`bg-white shadow-lg rounded-2xl p-6 flex gap-4 items-start border-t-4 ${service.borderColor} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+            >
+              <span className={`text-3xl ${service.textColor}`}>{service.icon}</span>
+              <div>
+                <h3 className="text-xl font-bold">{service.title}</h3>
+                <p className="text-gray-600">{service.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </ScrollAnimationWrapper>
+
+        <div className="mt-10 text-center">
+          <p className="text-lg font-semibold">
+            "Let's tailor our services to meet your needs. Book a discovery call today!"
+          </p>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-const services = [
-  {
-    icon: "💼",
-    title: "General Admin Support",
-    description: "Email and calendar management, document organization, data entry & research.",
-    borderColor: "#0d4a3a",
-  },
-  {
-    icon: "📷",
-    title: "Social Media Assistance",
-    description: "Content scheduling & posting, engagement & community management, caption writing & branding support.",
-    borderColor: "#fcc811",
-  },
-  {
-    icon: "📃",
-    title: "Project & Task Management",
-    description: "Organizing tasks & deadlines, process automation, meeting notes & action item tracking.",
-    borderColor: "#0d4a3a",
-  },
-  {
-    icon: "📞",
-    title: "Customer Support Assistance",
-    description: "Responding to inquiries, managing support tickets, live chat & email support.",
-    borderColor: "#fcc811",
-  },
-  {
-    icon: "📝",
-    title: "Research & Reporting",
-    description: "Market research & competitor analysis, report creation, presentation preparation.",
-    borderColor: "#0d4a3a",
-  },
-  {
-    icon: "🛠️",
-    title: "Additional Custom Support",
-    description: "Need something specific? Let’s discuss your needs!",
-    borderColor: "#fcc811",
-  },
-];
+export default ServiceList;

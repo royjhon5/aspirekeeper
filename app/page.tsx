@@ -4,6 +4,7 @@ import Layout from "@/components/layouts/Layout";
 import ServiceComponent from "@/components/Services";
 import TestimonialSection from "@/components/TestimonialSection";
 import ServiceList from "@/components/ServiceList";
+import AboutUs from "@/components/AboutUs";
 
 
 
@@ -15,6 +16,7 @@ export default function Home() {
       <ServiceComponent />
       <TestimonialSection />
       <ServiceList />
+      <AboutUs />
       <ContactUs />
     </Layout>
     </>
