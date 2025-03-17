@@ -14,8 +14,8 @@ export default function Home() {
     <Layout>
       <HeroSection />
       <ServiceComponent />
-      <TestimonialSection />
       <ServiceList />
+      <TestimonialSection />
       <AboutUs />
       <ContactUs />
     </Layout>

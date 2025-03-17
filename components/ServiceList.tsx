@@ -89,7 +89,7 @@ const ServiceList: React.FC = () => {
 
         <div className="mt-10 text-center">
           <p className="text-lg font-semibold">
-            "Let's tailor our services to meet your needs. Book a discovery call today!"
+            Let&apos;s tailor our services to meet your needs. Book a discovery call today!
           </p>
         </div>
       </div>
