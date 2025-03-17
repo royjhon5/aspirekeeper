@@ -23,27 +23,27 @@ const Header: React.FC = () => {
             </div>
             <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500 items-center">
             <LinkScroll activeClass="active" to="home" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("home");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "home" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
+                (activeLink === "home" ? " text-yellow-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
               Home
             </LinkScroll>
             <LinkScroll activeClass="active" to="services" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("services");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "services" ? " text-orange-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
+                (activeLink === "services" ? " text-yellow-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
               Services
             </LinkScroll>
             <LinkScroll activeClass="active" to="aboutus" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("aboutus");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "aboutus" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
+                (activeLink === "aboutus" ? " text-yellow-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
               About Us
             </LinkScroll>
             <LinkScroll activeClass="active" to="pricing" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("pricing");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "pricing" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
+                (activeLink === "pricing" ? " text-yellow-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
               Pricing
             </LinkScroll>
             <LinkScroll activeClass="active" to="blog" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("blog");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "blog" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
+                (activeLink === "blog" ? " text-yellow-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
               Blog
             </LinkScroll>
             <LinkScroll activeClass="active" to="contact" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("contact");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "contact" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
+                (activeLink === "contact" ? " text-yellow-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
               Contact
             </LinkScroll>
             </ul>

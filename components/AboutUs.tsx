@@ -7,84 +7,91 @@ import ScrollAnimationWrapper from '@/components/layouts/ScrollAnimationWrapper'
 import getScrollAnimation from '@/utils/getScrollAnimation';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Image from 'next/image';
+import ButtonPrimary from './misc/ButtonPrimary';
 
 const AboutPage = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   const settings = {
     dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
     autoplay: true,
+    autoplaySpeed: 4000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 2,
     responsive: [
       {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
+        breakpoint: 770,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
       },
       {
-        breakpoint: 640,
-        settings: { slidesToShow: 1 },
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
       },
     ],
   };
   
 
   return (
-    <div>
-
-      <section className="py-16 bg-white">
+    <div className='max-w-screen-xl  px-6 sm:px-8 mt-10 mb-10 lg:px-16 mx-auto flex flex-col w-full justify-center' id="aboutus">
+      <div className="py-1 bg-white">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-
-          <div>
-
-            <div className="relative inline-block mb-2">
-              <span className="text-sm uppercase tracking-wider font-semibold text-gray-600">
-                About
-              </span>
-              <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#0d4a3a]"></span>
-            </div>
-
-
-            <h1 className="text-4xl font-bold mb-4 text-[#0d4a3a]">WHO WE ARE</h1>
-
-            <h2 className="text-xl font-semibold text-[#fcc811] mb-2">Our Mission</h2>
-            <p className="text-gray-700 mb-6">
-              Helping individuals and businesses reach their goals by freeing them from time-consuming tasks.
-              We believe that when you focus on what truly matters, success follows.
-            </p>
-
-            <button className="px-5 py-2 bg-[#0d4a3a] text-white rounded hover:bg-[#fcc811] transition">
-              Want to learn more? Let’s chat!
-            </button>
-          </div>
-
-          <div className="bg-[#fcc811] p-8 rounded shadow-md">
+          <ScrollAnimationWrapper>
+            <motion.div variants={scrollAnimation}>
+              <div className="relative inline-block mb-2">
+                <span className="text-sm uppercase tracking-wider font-semibold text-gray-600">
+                  About
+                </span>
+                <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#0d4a3a]"></span>
+              </div>
+              <h2 className="text-4xl font-bold mb-4 text-[#0d4a3a]">WHO WE ARE</h2>
+              <h2 className="text-xl font-semibold text-[#fcc811] mb-2">Our Mission</h2>
+              <p className="text-gray-700 mb-6">
+                Helping individuals and businesses reach their goals by freeing them from time-consuming tasks.
+                We believe that when you focus on what truly matters, success follows.
+              </p>
+              <ButtonPrimary>
+                Want to learn more? Let’s chat!
+              </ButtonPrimary>
+            </motion.div>
+          </ScrollAnimationWrapper>
+          <ScrollAnimationWrapper>
+          <motion.div className="bg-[#fcc811] p-8 rounded shadow-md" variants={scrollAnimation}>
             <h2 className="text-xl font-semibold text-[#162144] mb-2">Our Vision</h2>
             <p className="text-gray-800">
               To empower dreamers and doers by keeping their aspirations organized and achievable.
               Aspire Keeper is committed to delivering seamless virtual assistance that allows our clients to work smarter, not harder.
             </p>
-          </div>
+          </motion.div>
+          </ScrollAnimationWrapper>
         </div>
-      </section>
-
-      <ScrollAnimationWrapper>
+      </div>
+      <ScrollAnimationWrapper className="w-full flex flex-col">
         <motion.h3
           variants={scrollAnimation}
           className="text-3xl font-bold text-[#0d4a3a] mb-8 text-center"
         >
           Meet the Team
         </motion.h3>
-        <Slider {...settings}>
+        <motion.div variants={scrollAnimation}>
+        <Slider {...settings} className='flex items-stretch justify-items-stretch'>
           {['Alice Johnson', 'Bob Smith', 'Carol Davis', 'David Lee'].map((name, index) => (
-            <div key={index} className="px-2">
-              <div className="p-6 bg-white border rounded shadow hover:shadow-md transition text-center">
-                <img
+            <div key={index} className="px-3 flex items-stretch">
+              <div className="border-2 border-black-500 hover:border-yellow-500 transition-all rounded-lg p-8 flex flex-col text-center">
+                  <Image
                   src={`/images/team${index + 1}.jpg`}
                   alt={name}
+                  height={0}
+                  width={0}
                   className="mx-auto w-24 h-24 rounded-full object-cover mb-4 border-4 border-[#0d4a3a]"
                 />
                 <h3 className="text-lg font-semibold mb-1 text-[#fcc811]">{name}</h3>
@@ -95,6 +102,7 @@ const AboutPage = () => {
             </div>
           ))}
         </Slider>
+        </motion.div>  
       </ScrollAnimationWrapper>
     </div>
   );

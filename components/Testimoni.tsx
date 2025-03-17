@@ -1,9 +1,8 @@
 'use client'
 
 import Image from 'next/image';
-import React, { useState } from 'react';
 import Slider from "react-slick";
-import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 
 const Testimonials: React.FC = () => {
@@ -47,14 +46,6 @@ const Testimonials: React.FC = () => {
   ]
   const settings = {
     dots: true,
-    customPaging: function () {
-      return (
-        <a className="">
-          <span className="mx-2 rounded-l-full rounded-r-full h-4 w-4 block cursor-pointer transition-all "></span>
-        </a>
-      );
-    },
-    dotsClass: "slick-dots", 
     autoplay: true,
     autoplaySpeed: 4000,
     infinite: true,
@@ -79,13 +70,11 @@ const Testimonials: React.FC = () => {
       },
     ],
   };
-  const [sliderRef, setSliderRef] = useState<Slider | null>(null);
   return (
     <>
       <Slider
         {...settings}
         arrows={false}
-        ref={setSliderRef}
         className="flex items-stretch justify-items-stretch"
       >
         {listTestimoni.map((listTestimonis, index) => (
@@ -120,22 +109,6 @@ const Testimonials: React.FC = () => {
           </div>
         ))}
       </Slider>
-      <div className="flex w-full items-center justify-end">
-        <div className="flex flex-none justify-between w-auto mt-8">
-          <div
-            className="mx-3 flex items-center justify-center h-14 w-14 rounded-full bg-white border-yellow-500 border hover:bg-orange-500 hover:text-white-500 transition-all text-orange-500 cursor-pointer"
-            onClick={sliderRef?.slickPrev}
-          >
-            <ArrowLeft />
-          </div>
-          <div
-            className="flex items-center justify-center h-14 w-14 rounded-full bg-white border-yellow-500 border hover:bg-orange-500 hover:text-white-500 transition-all text-orange-500 cursor-pointer"
-            onClick={sliderRef?.slickNext}
-          >
-            <ArrowRight />
-          </div>
-        </div>
-      </div>
     </>
   );
 };
