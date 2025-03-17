@@ -27,7 +27,7 @@ const HeroSection: React.FC = () => {
   ]
 
   return (
-    <div className="relative w-full h-screen">
+    <div>
       <Image
         src={heroImages}
         alt="Hero Background"
