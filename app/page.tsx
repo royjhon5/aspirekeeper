@@ -3,6 +3,8 @@ import HeroSection from "@/components/Hero";
 import Layout from "@/components/layouts/Layout";
 import ServiceComponent from "@/components/Services";
 import TestimonialSection from "@/components/TestimonialSection";
+import ServiceList from "@/components/ServiceList";
+
 
 
 export default function Home() {
@@ -12,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <ServiceComponent />
       <TestimonialSection />
+      <ServiceList />
       <ContactUs />
     </Layout>
     </>
