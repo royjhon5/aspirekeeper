@@ -88,7 +88,7 @@ const AboutPage = () => {
             <div key={index} className="px-3 flex items-stretch">
               <div className="border-2 border-black-500 hover:border-yellow-500 transition-all rounded-lg p-8 flex flex-col text-center">
                   <Image
-                  src={`/images/team${index + 1}.jpg`}
+                  src={`/android-icon-192x192.png`}
                   alt={name}
                   height={0}
                   width={0}

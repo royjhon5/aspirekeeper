@@ -108,7 +108,7 @@ const ServiceList: React.FC = () => {
                   duration: 0.4,
                 },
               }}
-              className={`bg-white shadow-lg rounded-2xl p-6 flex gap-4 items-start border-t-4 ${service.borderColor}`}
+              className={`bg-white shadow-md p-6 flex gap-4 items-start border-t-4 ${service.borderColor}`}
             >
               <span className={`text-3xl ${service.textColor}`}>{service.icon}</span>
               <div className="text-left">
