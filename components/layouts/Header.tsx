@@ -2,81 +2,92 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
-import asklogo from '../../public/logo/akslogo.png'
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react'; // Icon for mobile menu
+import asklogo from '../../public/logo/akslogo.png';
 
 const Header: React.FC = () => {
-    const [activeLink, setActiveLink] = useState<string | null>(null);
+  const [activeLink, setActiveLink] = useState<string | null>(null);
   const [scrollActive, setScrollActive] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScrollActive(window.scrollY > 20);
     });
   }, []);
+
   return (
     <>
-    <header className={"fixed top-0 w-full  z-30 bg-white transition-all " + (scrollActive ? " shadow-md pt-0" : " pt-4")}>
-        <nav className='max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4'>
-            <div className='col-start-1 col-end-2 flex items-center'>
-                {/* image */}
-                <Image alt="Aspirekeeper logo" src={asklogo} className='h-11 w-auto' />
-            </div>
-            <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500 items-center">
-            <LinkScroll activeClass="active" to="home" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("home");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "home" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
-              Home
-            </LinkScroll>
-            <LinkScroll activeClass="active" to="services" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("services");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "services" ? " text-orange-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
-              Services
-            </LinkScroll>
-            <LinkScroll activeClass="active" to="aboutus" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("aboutus");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "aboutus" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
-              About Us
-            </LinkScroll>
-            <LinkScroll activeClass="active" to="pricing" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("pricing");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "pricing" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
-              Pricing
-            </LinkScroll>
-            <LinkScroll activeClass="active" to="blog" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("blog");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "blog" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
-              Blog
-            </LinkScroll>
-            <LinkScroll activeClass="active" to="contact" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("contact");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "contact" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
-              Contact
-            </LinkScroll>
-            </ul>
-        </nav>
-    </header>
-    <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 bg-white shadow-t">
-      <ul className="flex w-full justify-between items-center text-black-500 py-3 cursor-pointer">
-        {[
-          { name: "Home", to: "home" },
-          { name: "Services", to: "services" },
-          { name: "About", to: "aboutus" },
-          { name: "Pricing", to: "pricing" },
-          { name: "Blog", to: "blog" },
-          { name: "Contact", to: "contact" },
-        ].map((item) => (
-          <LinkScroll
-            key={item.to}
-            activeClass="active"
-            to={item.to}
-            spy={true}
-            smooth={true}
-            duration={1000}
-            onSetActive={() => setActiveLink(item.to)}
-            className={`flex flex-col items-center justify-center text-sm md:text-base px-3 py-2 w-full ${
-              activeLink === item.to ? "text-green-900 font-semibold" : "text-black-500 hover:text-green-900"
-            }`}
-          >
-            {item.name}
-          </LinkScroll>
-        ))}
-      </ul>
-    </nav>
+      {/* Desktop Header */}
+      <header className={`fixed top-0 w-full z-30 bg-white transition-all ${scrollActive ? "shadow-md" : "pt-4"}`}>
+        <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto flex justify-between items-center py-4">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Image alt="Aspire Keeper logo" src={asklogo} className="h-12 w-auto" />
+          </div>
 
+          {/* Desktop Navigation */}
+          <ul className="hidden lg:flex font-bold space-x-6 text-black-700">
+            {["home", "services", "about Us", "pricing", "blog", "contact"].map((item) => (
+              <LinkScroll
+                key={item}
+                activeClass="active"
+                to={item}
+                spy={true}
+                smooth={true}
+                duration={1000}
+                onSetActive={() => setActiveLink(item)}
+                className={`cursor-pointer transition duration-300 hover:text-green-900 ${
+                  activeLink === item ? "text-green-900 font-semibold" : "text-black-600"
+                }`}
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </LinkScroll>
+            ))}
+          </ul>
+
+          {/* CTA Button */}
+          <div className="hidden lg:block">
+            <button className="px-6 py-2 bg-green-700 text-white rounded-lg shadow-md transition hover:bg-green-800">
+              Get Started Today
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button className="lg:hidden focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center lg:hidden">
+          <button className="absolute top-5 right-5 text-black" onClick={() => setMobileMenuOpen(false)}>
+            <X size={28} />
+          </button>
+          <ul className="text-xl text-black-700 space-y-6">
+            {["home", "services", "aboutus", "pricing", "blog", "contact"].map((item) => (
+              <LinkScroll
+                key={item}
+                activeClass="active"
+                to={item}
+                spy={true}
+                smooth={true}
+                duration={1000}
+                onSetActive={() => {
+                  setActiveLink(item);
+                  setMobileMenuOpen(false);
+                }}
+                className="cursor-pointer hover:text-green-900 transition duration-300"
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </LinkScroll>
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 };

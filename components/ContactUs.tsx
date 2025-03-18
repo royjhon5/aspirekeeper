@@ -16,7 +16,7 @@ const ContactUs: React.FC = () => {
           <ScrollAnimationWrapper>
             <motion.h3
               variants={scrollAnimation}
-              className="text-2xl sm:text-2xl lg:text-3xl font-medium text-black-600 w-9/12 sm:w-4/12 mx-auto">
+              className="text-2xl sm:text-2xl lg:text-3xl font-medium text-black-600 w-9/12 sm:w-4/12 mx-auto text-[#0d4a3a]">
               Contact Us
             </motion.h3>
             <motion.p
