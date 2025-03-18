@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "AI assistant",
   ],
   openGraph: {
-    url: "https://aspirekeeper-demo.vercel.app/",
+    url: "https://aspirekeeper.vercel.app/",
     type: "website",
     title: "Aspire Keeper Solutions",
     description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Aspire Keeper Solutions",
     images: [
       {
-        url: "https://aspirekeeper-demo.vercel.app/thumbnail/thumbnail.png",
+        url: "https://aspirekeeper.vercel.app/thumbnail/thumbnail.png",
         width: 1200,
         height: 630,
         alt: "Aspire Keeper Solutions Thumbnail",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     site: "@rjdev",
     images: [
       {
-        url: "https://aspirekeeper-demo.vercel.app/thumbnail/thumbnail.png",
+        url: "https://aspirekeeper.vercel.app/thumbnail/thumbnail.png",
         width: 1200,
         height: 630,
         alt: "Aspire Keeper Thumbnail",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://aspirekeeper-demo.vercel.app/",
+    canonical: "https://aspirekeeper.vercel.app/",
   },
 };
 
@@ -96,7 +96,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Aspire Keeper Solutions",
-              "url": "https://aspirekeeper-demo.vercel.app/",
+              "url": "https://aspirekeeper.vercel.app/",
               "description":
                 "Aspire Keeper handles your tasks and to-do lists, so you can focus on achieving your goals. We offer virtual assistance to streamline work and boost efficiency.",
               "publisher": {
@@ -104,13 +104,13 @@ export default function RootLayout({
                 "name": "Aspire Keeper",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://aspirekeeper-demo.vercel.app/thumbnail/thumbnail.png",
+                  "url": "https://aspirekeeper.vercel.app/thumbnail/thumbnail.png",
                 },
               },
-              "image": "https://aspirekeeper-demo.vercel.app/thumbnail/thumbnail.png",
+              "image": "https://aspirekeeper.vercel.app/thumbnail/thumbnail.png",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://aspirekeeper-demo.vercel.app/search?q={search_term}",
+                "target": "https://aspirekeeper.vercel.app/search?q={search_term}",
                 "query-input": "required name=search_term",
               },
             }),
