@@ -6,15 +6,15 @@ import getScrollAnimation from '@/utils/getScrollAnimation';
 import ScrollAnimationWrapper from './layouts/ScrollAnimationWrapper';
 import Image from 'next/image';
 import ServiceImage from '../public/hero_section_images/teamwork.svg';
-import { FaTasks, FaUserTie, FaCalendarCheck, FaClipboardList, FaHeadset, FaChartBar } from 'react-icons/fa';
+// import { FaTasks, FaUserTie, FaCalendarCheck, FaClipboardList, FaHeadset, FaChartBar } from 'react-icons/fa';
 
 const services = [
-  { name: "Virtual Assistant Support", icon: FaUserTie },
-  { name: "Administrative Tasks", icon: FaTasks },
-  { name: "Social Media Management", icon: FaChartBar },
-  { name: "Calendar & Email Management", icon: FaCalendarCheck },
-  { name: "Research & Data Entry", icon: FaClipboardList },
-  { name: "Customer Support Assistance", icon: FaHeadset }
+  { name: "Virtual Assistant Support", icon: '' },
+  { name: "Administrative Tasks", icon: 'FaTasks' },
+  { name: "Social Media Management", icon: 'FaChartBar' },
+  { name: "Calendar & Email Management", icon: 'FaCalendarCheck' },
+  { name: "Research & Data Entry", icon: 'FaClipboardList' },
+  { name: "Customer Support Assistance", icon: 'FaHeadset' }
 ];
 
 
@@ -23,7 +23,7 @@ const ServiceComponent: React.FC = () => {
   
 
   return (
-    <div className='max-w-screen-xl mt-16 sm:mt-24 px-6 sm:px-8 lg:px-16 mx-auto'>
+    <div className='max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto'>
       {/* Service Section */}
       <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
         
@@ -48,12 +48,12 @@ const ServiceComponent: React.FC = () => {
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {services.map((service, index) => (
                 <motion.div 
-                  key={service.name} 
+                  key={index} 
                   className="flex items-center p-4 bg-white shadow-lg rounded-xl"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <service.icon className="text-yellow-500 text-3xl mr-4" />
+                  {/* <service.icon className="text-yellow-500 text-3xl mr-4" /> */}
                   <p className="text-lg font-medium text-gray-800">{service.name}</p>
                 </motion.div>
               ))}

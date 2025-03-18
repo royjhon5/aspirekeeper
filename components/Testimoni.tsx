@@ -1,9 +1,5 @@
 'use client';
 
-import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
-import getScrollAnimation from '@/utils/getScrollAnimation';
-import ScrollAnimationWrapper from './layouts/ScrollAnimationWrapper';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Slider from "react-slick";
@@ -144,4 +140,4 @@ const Testimonials: React.FC = () => {
   );
 };
 
-export default TestimonialSection;
+export default Testimonials;

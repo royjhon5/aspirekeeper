@@ -35,33 +35,25 @@ const AboutPage = () => {
 
   return (
     <div>
-
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-
           <div>
-
             <div className="relative inline-block mb-2">
               <span className="text-sm uppercase tracking-wider font-semibold text-gray-600">
                 About
               </span>
               <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#0d4a3a]"></span>
             </div>
-
-
             <h1 className="text-4xl font-bold mb-4 text-[#0d4a3a]">WHO WE ARE</h1>
-
             <h2 className="text-xl font-semibold text-[#fcc811] mb-2">Our Mission</h2>
             <p className="text-gray-700 mb-6">
               Helping individuals and businesses reach their goals by freeing them from time-consuming tasks.
               We believe that when you focus on what truly matters, success follows.
             </p>
-
-            <button className="px-5 py-2 bg-[#0d4a3a] text-white rounded hover:bg-[#fcc811] transition">
+            <ButtonPrimary>
               Want to learn more? Let’s chat!
-            </button>
+            </ButtonPrimary>
           </div>
-
           <div className="bg-[#fcc811] p-8 rounded shadow-md">
             <h2 className="text-xl font-semibold text-[#162144] mb-2">Our Vision</h2>
             <p className="text-gray-800">
@@ -83,9 +75,11 @@ const AboutPage = () => {
           {['Alice Johnson', 'Bob Smith', 'Carol Davis', 'David Lee'].map((name, index) => (
             <div key={index} className="px-2">
               <div className="p-6 bg-white border rounded shadow hover:shadow-md transition text-center">
-                <img
+                <Image
                   src={`/images/team${index + 1}.jpg`}
                   alt={name}
+                  width={0}
+                  height={0}
                   className="mx-auto w-24 h-24 rounded-full object-cover mb-4 border-4 border-[#0d4a3a]"
                 />
                 <h3 className="text-lg font-semibold mb-1 text-[#fcc811]">{name}</h3>

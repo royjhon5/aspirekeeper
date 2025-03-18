@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import getScrollAnimation from '@/utils/getScrollAnimation';
 import ScrollAnimationWrapper from './layouts/ScrollAnimationWrapper';
 import Testimonials from './Testimoni';
-import heroBg from '../public/hero_section_images/hero-bg-light.jpg';
-import Image from 'next/image';
 
 const TestimonialSection: React.FC = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
