@@ -3,108 +3,95 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import getScrollAnimation from '@/utils/getScrollAnimation';
-import ScrollAnimationWrapper from './layouts/ScrollAnimationWrapper';
-import { Briefcase, Camera, ClipboardList, Headset, FileText, Megaphone } from 'lucide-react';
 
-const services = [
-  {
-    title: "General Admin Support",
-    icon: <Briefcase size={40} className="text-[#0d4a3a]" />,
-    items: [
-      "Email and calendar management",
-      "Document organization",
-      "Data entry & research",
-    ],
-  },
-  {
-    title: "Social Media Assistance",
-    icon: <Camera size={40} className="text-[#fcc811]" />,
-    items: [
-      "Content scheduling & posting",
-      "Engagement & community management",
-      "Caption writing & branding support",
-    ],
-  },
-  {
-    title: "Project & Task Management",
-    icon: <ClipboardList size={40} className="text-[#0d4a3a]" />,
-    items: [
-      "Organizing tasks & deadlines",
-      "Process automation",
-      "Meeting notes & action item tracking",
-    ],
-  },
-  {
-    title: "Customer Support Assistance",
-    icon: <Headset size={40} className="text-[#fcc811]" />,
-    items: [
-      "Responding to inquiries",
-      "Managing support tickets",
-      "Live chat & email support",
-    ],
-  },
-  {
-    title: "Research & Reporting",
-    icon: <FileText size={40} className="text-[#0d4a3a]" />,
-    items: [
-      "Market research & competitor analysis",
-      "Report creation",
-      "Presentation preparation",
-    ],
-  },
-  {
-    title: "Additional Custom Support",
-    icon: <Megaphone size={40} className="text-[#fcc811]" />,
-    items: [
-      "Need something specific? Let’s discuss your needs!",
-    ],
-  },
-];
-
-const ServicesPage: React.FC = () => {
+const ServiceList: React.FC = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
+  const services = [
+    {
+      title: "General Admin Support",
+      description: "Email and calendar management, document organization, data entry & research.",
+      icon: "💼",
+      borderColor: "border-[#0d4a3a]",
+      textColor: "text-[#0d4a3a]",
+    },
+    {
+      title: "Social Media Assistance",
+      description: "Content scheduling & posting, engagement & community management, caption writing & branding support.",
+      icon: "📷",
+      borderColor: "border-[#fcc811]",
+      textColor: "text-[#fcc811]",
+    },
+    {
+      title: "Project & Task Management",
+      description: "Organizing tasks & deadlines, process automation, meeting notes & action item tracking.",
+      icon: "📃",
+      borderColor: "border-[#0d4a3a]",
+      textColor: "text-[#0d4a3a]",
+    },
+    {
+      title: "Customer Support Assistance",
+      description: "Responding to inquiries, managing support tickets, live chat & email support.",
+      icon: "📞",
+      borderColor: "border-[#fcc811]",
+      textColor: "text-[#fcc811]",
+    },
+    {
+      title: "Research & Reporting",
+      description: "Market research & competitor analysis, report creation, presentation preparation.",
+      icon: "📝",
+      borderColor: "border-[#0d4a3a]",
+      textColor: "text-[#0d4a3a]",
+    },
+    {
+      title: "Additional Custom Support",
+      description: "Need something specific? Let’s discuss your needs!",
+      icon: "🛠️",
+      borderColor: "border-[#fcc811]",
+      textColor: "text-[#fcc811]",
+    },
+  ];
+
   return (
-    <div className="bg-gray-100 py-16" id="services">
-      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto text-center">
-        {/* Header */}
+    <div className="bg-gradient-to-b from-white-300 to-white-500 w-full py-14" id="services">
+      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
         <ScrollAnimationWrapper>
-          <motion.div variants={scrollAnimation} className="text-center mb-5">
-            {/* Services Title */}
-            <h3 className="text-4xl font-bold text-gray-800 uppercase relative inline-block pb-2">SERVICES
-              <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 w-16 border-b-4 border-[#0d4a3a]"></div>
-              </h3>
-            {/* Subtitle */}
-             <p className="text-lg text-gray-600 mt-4">Supporting Your Success, One Task at a Time. </p>
-          </motion.div>
+          <motion.h3
+            variants={scrollAnimation}
+            className="text-2xl sm:text-2xl lg:text-3xl font-medium text-black-600 w-9/12 sm:w-4/12 mx-auto"
+          >
+            Our Services
+          </motion.h3>
+          <motion.p
+            variants={scrollAnimation}
+            className="leading-normal mx-auto mb-8 mt-4 w-10/12 sm:w-7/12 lg:w-6/12"
+          >
+            Supporting Your Success, One Task at a Time.
+          </motion.p>
         </ScrollAnimationWrapper>
 
         {/* Services List */}
         <ScrollAnimationWrapper className="grid md:grid-cols-2 gap-8 py-12">
           {services.map((service, index) => (
             <motion.div
+              custom={{duration: 2 + index}}
               key={index}
               variants={scrollAnimation}
-              className="bg-white shadow-lg rounded-lg p-6 text-left flex gap-4 items-start border-l-4 border-[#0d4a3a] hover:scale-105 transition-transform duration-300"
+              className={`bg-white shadow-lg rounded-2xl p-6 flex gap-4 items-start border-t-4 ${service.borderColor} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
             >
-              {service.icon}
+              <span className={`text-3xl ${service.textColor}`}>{service.icon}</span>
               <div>
-                <h3 className="text-xl font-semibold text-gray-800">{service.title}</h3>
-                <ul className="mt-2 text-gray-600 list-disc pl-5">
-                  {service.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
+                <h3 className="text-xl font-bold">{service.title}</h3>
+                <p className="text-gray-600">{service.description}</p>
               </div>
             </motion.div>
           ))}
         </ScrollAnimationWrapper>
 
-        {/* CTA */}
-        <div className="mt-12 bg-[#fcc811] text-black py-10 px-6 rounded-lg">
-          <h3 className="text-2xl font-semibold">Let's tailor our services to meet your needs.</h3>
-          <p className="text-lg mt-2">Book a discovery call today!</p>
-          
+        <div className="mt-10 text-center">
+          <p className="text-lg font-semibold">
+            Let&apos;s tailor our services to meet your needs. Book a discovery call today!
+          </p>
         </div>
       </div>
     </div>

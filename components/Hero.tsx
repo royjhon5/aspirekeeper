@@ -19,27 +19,32 @@ const HeroSection: React.FC = () => {
   ];
 
   return (
-    
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gray-100">
-      {/* Background Image */}
-      <Image src={heroBg} alt="Hero Background" layout="fill" objectFit="cover" className="absolute inset-0 w-full h-full opacity-20" priority />
-      
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl px-8 xl:px-16 mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-        {/* Left Side - Text Content */}
-        <motion.div 
-        className="text-center md:text-left mt-15"
-        variants={scrollAnimation}
->
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-            Reliable VA services that keep your <span className="text-yellow-500">Aspir</span>
-            <span className="text-green-700">ations</span> on track
-          </h1>
-          <p className="mt-3 text-md text-gray-600">
-            At Aspire Keeper Solutions, we take care of the tasks, details, and to-do lists, 
-            so you can focus on what truly matters—achieving your aspirations.
-          </p>
-          <div className="mt-6">
+    <div className="relative w-full h-screen">
+      <Image
+        src={heroImages}
+        alt="Hero Background"
+        layout="fill"
+        objectFit="cover"
+        width={0}
+        height={0}
+        quality={100}
+        priority 
+        style={{ filter: "opacity(15%)" }} 
+      />
+      <div className='max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto' id="home">
+      <ScrollAnimationWrapper>
+        <motion.div
+          className="grid grid-flow-row sm:grid-flow-col grid-rows-2 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16"
+          variants={scrollAnimation}
+        >
+          <div className='flex flex-col justify-center items-start row-start-2 sm:row-start-1'>
+            <h1 className="text-3xl lg:text-4xl xl:text-4xl font-medium text-black-600 leading-normal">
+                Reliable VA services that keep your <strong className='text-yellow-400'>Aspir</strong><strong className='text-green-900'>ations</strong> on track
+            </h1>
+            <p className="text-black-500 mt-4 mb-6">
+            At Aspire Keeper Solutions, we take care of the tasks, details, and to-do lists, so you can focus on what truly matters—achieving your aspirations. Whether you&apos;re a 
+            business owner, entrepreneur, or busy professional, we provide virtual assistance to streamline your workload and maximize efficiency
+            </p>
             <ButtonPrimary>Book a Free Consultation</ButtonPrimary>
           </div>
         </motion.div>
