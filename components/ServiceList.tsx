@@ -13,42 +13,65 @@ const ServiceList: React.FC = () => {
   const services = [
     {
       title: "General Admin Support",
-      description: "Email and calendar management, document organization, data entry & research.",
+      description: [
+        "Email and calendar management",
+        "Document organization",
+        "Data entry & research"
+      ],
       icon: "💼",
       borderColor: "border-[#0d4a3a]",
       textColor: "text-[#0d4a3a]",
     },
     {
       title: "Social Media Assistance",
-      description: "Content scheduling & posting, engagement & community management, caption writing & branding support.",
+      description: [
+        "Content scheduling & posting",
+        "Engagement & community management",
+        "Caption writing & branding support"
+      ],
       icon: "📷",
       borderColor: "border-[#fcc811]",
       textColor: "text-[#fcc811]",
     },
     {
       title: "Project & Task Management",
-      description: "Organizing tasks & deadlines, process automation, meeting notes & action item tracking.",
+      description: [
+        "Organizing tasks & deadlines",
+        "Process automation",
+        "Meeting notes & action item tracking"
+      ],
       icon: "📃",
       borderColor: "border-[#0d4a3a]",
       textColor: "text-[#0d4a3a]",
     },
     {
       title: "Customer Support Assistance",
-      description: "Responding to inquiries, managing support tickets, live chat & email support.",
+      description: [
+        "Responding to inquiries",
+        "Managing support tickets",
+        "Live chat & email support"
+      ],
       icon: "📞",
       borderColor: "border-[#fcc811]",
       textColor: "text-[#fcc811]",
     },
     {
       title: "Research & Reporting",
-      description: "Market research & competitor analysis, report creation, presentation preparation.",
+      description: [
+        "Market research & competitor analysis",
+        "Report creation",
+        "Presentation preparation"
+      ],
       icon: "📝",
       borderColor: "border-[#0d4a3a]",
       textColor: "text-[#0d4a3a]",
     },
     {
       title: "Additional Custom Support",
-      description: "Need something specific? Let’s discuss your needs!",
+      description: [
+        "Need something specific?",
+        "Let’s discuss your needs!"
+      ],
       icon: "🛠️",
       borderColor: "border-[#fcc811]",
       textColor: "text-[#fcc811]",
@@ -57,17 +80,17 @@ const ServiceList: React.FC = () => {
 
   return (
     <div className="bg-gradient-to-b from-white-300 to-white-500 w-full py-2" id="services">
-      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
+      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-left justify-center">
         <ScrollAnimationWrapper>
           <motion.h3
             variants={scrollAnimation}
-            className="text-2xl sm:text-2xl lg:text-3xl font-medium text-black-600 w-9/12 sm:w-4/12 mx-auto"
+            className="text-2xl sm:text-2xl lg:text-3xl font-medium text-black-600 w-9/12 sm:w-4/12"
           >
             Our Services
           </motion.h3>
           <motion.p
             variants={scrollAnimation}
-            className="leading-normal mx-auto mt-1 w-10/12 sm:w-7/12 lg:w-6/12"
+            className="leading-normal mt-1 w-10/12 sm:w-7/12 lg:w-6/12"
           >
             Supporting Your Success, One Task at a Time.
           </motion.p>
@@ -80,18 +103,22 @@ const ServiceList: React.FC = () => {
               key={index}
               variants={scrollAnimation}
               whileHover={{
-                scale : 1.1,
+                scale: 1.1,
                 transition: {
-                duration: .4
-                }
+                  duration: 0.4,
+                },
               }}
               className={`bg-white shadow-lg rounded-2xl p-6 flex gap-4 items-start border-t-4 ${service.borderColor}`}
             >
               <span className={`text-3xl ${service.textColor}`}>{service.icon}</span>
-              <div>
+              <div className="text-left">
                 <h3 className="text-xl font-bold">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-                <Button variant="link" className='cursor-pointer text-blue-500'>
+                <ul className="list-disc pl-5 text-gray-600">
+                  {service.description.map((task, i) => (
+                    <li key={i}>{task}</li>
+                  ))}
+                </ul>
+                <Button variant="link" className="cursor-pointer text-blue-500">
                   Read More <ArrowRight size={16} strokeWidth={1.25} />
                 </Button>
               </div>
@@ -99,7 +126,7 @@ const ServiceList: React.FC = () => {
           ))}
         </ScrollAnimationWrapper>
 
-        <ScrollAnimationWrapper className="text-center">
+        <ScrollAnimationWrapper className="text-left">
           <motion.h3 variants={scrollAnimation} className="text-lg font-semibold">
             Let&apos;s tailor our services to meet your needs. Book a discovery call today!
           </motion.h3>
