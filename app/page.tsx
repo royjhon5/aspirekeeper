@@ -15,11 +15,11 @@ export default function Home() {
     <Layout>
       <HeroSection />
       <ServiceComponent />
-      <TestimonialSection />
+      <TestimonialSection /> 
       <ServiceList />
       <AboutUs />
-      <ContactUs />
       <BlogList />
+      <ContactUs />   
     </Layout>
     </>
   );

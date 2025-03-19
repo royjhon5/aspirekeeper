@@ -2,17 +2,21 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
-import asklogo from '../../public/logo/akslogo.png'
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react'; // Icon for mobile menu
+import asklogo from '../../public/logo/akslogo.png';
 
 const Header: React.FC = () => {
-    const [activeLink, setActiveLink] = useState<string | null>(null);
+  const [activeLink, setActiveLink] = useState<string | null>(null);
   const [scrollActive, setScrollActive] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScrollActive(window.scrollY > 20);
     });
   }, []);
+
   return (
     <>
     <header className={"fixed top-0 w-full  z-30 bg-white transition-all " + (scrollActive ? " shadow-md pt-0" : " pt-4")}>
@@ -48,35 +52,35 @@ const Header: React.FC = () => {
             </LinkScroll>
             </ul>
         </nav>
-    </header>
-    <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 bg-white shadow-t">
-      <ul className="flex w-full justify-between items-center text-black-500 py-3 cursor-pointer">
-        {[
-          { name: "Home", to: "home" },
-          { name: "Services", to: "services" },
-          { name: "About", to: "aboutus" },
-          { name: "Pricing", to: "pricing" },
-          { name: "Blog", to: "blog" },
-          { name: "Contact", to: "contact" },
-        ].map((item) => (
-          <LinkScroll
-            key={item.to}
-            activeClass="active"
-            to={item.to}
-            spy={true}
-            smooth={true}
-            duration={1000}
-            onSetActive={() => setActiveLink(item.to)}
-            className={`flex flex-col items-center justify-center text-sm md:text-base px-3 py-2 w-full ${
-              activeLink === item.to ? "text-green-900 font-semibold" : "text-black-500 hover:text-green-900"
-            }`}
-          >
-            {item.name}
-          </LinkScroll>
-        ))}
-      </ul>
-    </nav>
+      </header>
 
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center lg:hidden">
+          <button className="absolute top-5 right-5 text-black" onClick={() => setMobileMenuOpen(false)}>
+            <X size={28} />
+          </button>
+          <ul className="text-xl text-black-700 space-y-6">
+            {["home", "services", "aboutus", "pricing", "blog", "contact"].map((item) => (
+              <LinkScroll
+                key={item}
+                activeClass="active"
+                to={item}
+                spy={true}
+                smooth={true}
+                duration={1000}
+                onSetActive={() => {
+                  setActiveLink(item);
+                  setMobileMenuOpen(false);
+                }}
+                className="cursor-pointer hover:text-green-900 transition duration-300"
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </LinkScroll>
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 };

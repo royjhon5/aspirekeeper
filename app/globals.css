@@ -134,6 +134,10 @@ body {
   @apply left-0 w-full;
 }
 
+.text-shadow-md {
+  text-shadow: 10px 8px 8px rgba(0, 0, 0, 0.4);
+}
+
 li.custom-list:before {
   content: "\2022"; /* bullet point, for screen readers */
   text-indent: -9999999px; /* move the bullet point out of sight */
