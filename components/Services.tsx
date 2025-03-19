@@ -6,10 +6,10 @@ import getScrollAnimation from '@/utils/getScrollAnimation';
 import ScrollAnimationWrapper from './layouts/ScrollAnimationWrapper';
 import Image from 'next/image';
 import ServiceImage from '../public/hero_section_images/teamwork.svg';
-// import { FaTasks, FaUserTie, FaCalendarCheck, FaClipboardList, FaHeadset, FaChartBar } from 'react-icons/fa';
+import CheckIcon from '../public/assets/icons/checklist.svg'
 
 const services = [
-  { name: "Virtual Assistant Support", icon: '' },
+  { name: "Virtual Assistant Support", icon: CheckIcon },
   { name: "Administrative Tasks", icon: 'FaTasks' },
   { name: "Social Media Management", icon: 'FaChartBar' },
   { name: "Calendar & Email Management", icon: 'FaCalendarCheck' },
@@ -23,7 +23,7 @@ const ServiceComponent: React.FC = () => {
   
 
   return (
-    <div className='max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto'>
+    <div className='max-w-screen-xl mt-8 mb-6 px-6 sm:px-8 lg:px-16 mx-auto'>
       {/* Service Section */}
       <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
         
@@ -49,11 +49,11 @@ const ServiceComponent: React.FC = () => {
               {services.map((service, index) => (
                 <motion.div 
                   key={index} 
-                  className="flex items-center p-4 bg-white shadow-lg rounded-xl"
+                  className="flex items-center p-4 bg-white text-center shadow-lg rounded-xl"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {/* <service.icon className="text-yellow-500 text-3xl mr-4" /> */}
+                  <Image alt="Star" src={CheckIcon} />
                   <p className="text-lg font-medium text-gray-800">{service.name}</p>
                 </motion.div>
               ))}

@@ -83,10 +83,6 @@ const HeroSection: React.FC = () => {
               </motion.div>
             ))}
         </ScrollAnimationWrapper>
-        <div
-            className="absolute bg-black-600 opacity-5 w-11/12 roudned-lg h-64 sm:h-48 top-0 mt-8 mx-auto left-0 right-0"
-            style={{ filter: "blur(114px)" }}
-        ></div>
         </div>
       </div>
       

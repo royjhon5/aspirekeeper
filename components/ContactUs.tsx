@@ -10,7 +10,7 @@ const ContactUs: React.FC = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className='bg-gradient-to-b from-white-300 to-white-500 w-full py-14' id="contact">
+    <div className='bg-gradient-to-b from-white-300 to-white w-full py-14' id="contact">
       <div className='max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center'>
         <div className="flex flex-col w-full">
           <ScrollAnimationWrapper>

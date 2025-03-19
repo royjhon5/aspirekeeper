@@ -3,13 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react'; // Icon for mobile menu
 import asklogo from '../../public/logo/akslogo.png';
 
 const Header: React.FC = () => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [scrollActive, setScrollActive] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -19,7 +17,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-    <header className={"fixed top-0 w-full  z-30 bg-white transition-all " + (scrollActive ? " shadow-md pt-0" : " pt-4")}>
+    <header className={"fixed top-0 w-full z-30 bg-white transition-all " + (scrollActive ? " shadow-md pt-0" : " pt-4")}>
         <nav className='max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4'>
             <div className='col-start-1 col-end-2 flex items-center'>
                 {/* image */}
@@ -31,7 +29,7 @@ const Header: React.FC = () => {
               Home
             </LinkScroll>
             <LinkScroll activeClass="active" to="services" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("services");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "services" ? " text-orange-500 animation-active ": " text-black-500 hover:text-green-900 a")}>
+                (activeLink === "services" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
               Services
             </LinkScroll>
             <LinkScroll activeClass="active" to="aboutus" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("aboutus");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
@@ -54,8 +52,8 @@ const Header: React.FC = () => {
         </nav>
       </header>
 
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
+
+      {/* {mobileMenuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center lg:hidden">
           <button className="absolute top-5 right-5 text-black" onClick={() => setMobileMenuOpen(false)}>
             <X size={28} />
@@ -80,7 +78,7 @@ const Header: React.FC = () => {
             ))}
           </ul>
         </div>
-      )}
+      )} */}
     </>
   );
 };
