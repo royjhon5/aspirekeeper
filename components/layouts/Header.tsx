@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                 (activeLink === "aboutus" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
               About Us
             </LinkScroll>
-            <LinkScroll activeClass="active" to="pricing" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("testimonial");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+            <LinkScroll activeClass="active" to="testimonial" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("testimonial");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
                 (activeLink === "testimonial" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
               Testimonial
             </LinkScroll>
