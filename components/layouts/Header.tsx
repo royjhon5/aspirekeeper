@@ -36,9 +36,9 @@ const Header: React.FC = () => {
                 (activeLink === "aboutus" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
               About Us
             </LinkScroll>
-            <LinkScroll activeClass="active" to="pricing" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("pricing");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "pricing" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
-              Pricing
+            <LinkScroll activeClass="active" to="pricing" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("testimonial");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "testimonial" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
+              Testimonial
             </LinkScroll>
             <LinkScroll activeClass="active" to="blog" spy={true} smooth={true} duration={1000} onSetActive={() => { setActiveLink("blog");}} className={ "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
                 (activeLink === "blog" ? " text-green-900 animation-active ": " text-black-500 hover:text-green-900 a")}>
@@ -53,32 +53,34 @@ const Header: React.FC = () => {
       </header>
 
 
-      {/* {mobileMenuOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center lg:hidden">
-          <button className="absolute top-5 right-5 text-black" onClick={() => setMobileMenuOpen(false)}>
-            <X size={28} />
-          </button>
-          <ul className="text-xl text-black-700 space-y-6">
-            {["home", "services", "aboutus", "pricing", "blog", "contact"].map((item) => (
-              <LinkScroll
-                key={item}
-                activeClass="active"
-                to={item}
-                spy={true}
-                smooth={true}
-                duration={1000}
-                onSetActive={() => {
-                  setActiveLink(item);
-                  setMobileMenuOpen(false);
-                }}
-                className="cursor-pointer hover:text-green-900 transition duration-300"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </LinkScroll>
-            ))}
-          </ul>
-        </div>
-      )} */}
+      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 bg-white shadow-t">
+        <ul className="flex w-full justify-between items-center text-black-500 py-3">
+          {[
+            { name: "Home", to: "home" },
+            { name: "Services", to: "services" },
+            { name: "About", to: "aboutus" },
+            { name: "Testimonial", to: "testimonial" },
+            { name: "Blog", to: "blog" },
+            { name: "Contact", to: "contact" },
+          ].map((item) => (
+            <LinkScroll
+              key={item.to}
+              activeClass="active"
+              to={item.to}
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => setActiveLink(item.to)}
+              className={`flex flex-col items-center justify-center text-sm md:text-base px-3 py-2 w-full ${
+                activeLink === item.to ? "text-green-900 font-semibold" : "text-black-500 hover:text-green-900"
+              }`}
+            >
+              {item.name}
+            </LinkScroll>
+          ))}
+        </ul>
+      </nav>
+
     </>
   );
 };
