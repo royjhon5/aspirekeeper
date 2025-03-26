@@ -72,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="google-site-verification" content="n2nGFT_84o6GIzBOBmVYbeu42xfdaRrpsit-llx3vNo" />
+        <meta name="google-site-verification" content="45XhkFQbwu2ZDgfO4HKAi7qSLF8xFdmWJVe0rhqxfzE" />
         
         {/* Favicons */}
         <link rel="icon" type="image/png" sizes="32x32" href="https://aspirekeeper.com/favicon/favicon-32x32.png" />
